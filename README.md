@@ -1,2 +1,5 @@
 # prepare-interview
-Prepare interview 
+Prepare interview
+ - Pramp Questions
+ - Hackerank
+ - Booking
