@@ -2,7 +2,6 @@ package uber;
 
 import org.junit.Assert;
 import org.junit.Test;
-import uber.Uber;
 
 /**
  * Created by makoto on 21/05/17.
@@ -10,59 +9,61 @@ import uber.Uber;
 public class UberTest {
 
     @Test
-    public void solveEmpty(){
+    public void solveEmpty() {
         String input = "ACTCGTAAAAA";
 
-        Assert.assertEquals("", Uber.solve(input));
+        Assert.assertEquals("", new Uber().solve(input));
 
     }
 
     @Test
-    public void solveUber(){
+    public void solveUber() {
         String input = "ACTACGTTTAGTAACTCGTCT";
 
-        Assert.assertEquals("AGTAACTCGT",Uber.solve(input));
+        Assert.assertEquals("AGTAACTCGT", new Uber().solve(input));
     }
 
 
     @Test
-    public void solve2(){
+    public void solve2() {
         String input = "AGTACTCGT";
 
-        Assert.assertEquals("AGTACTCGT",Uber.solve(input));
+        Assert.assertEquals("AGTACTCGT", new Uber().solve(input));
     }
 
 
     @Test
-    public void solve3(){
+    public void solve3() {
         String input = "AAAAAAAAAGTACTCGT";
 
-        Assert.assertEquals("AGTACTCGT",Uber.solve(input));
+        Assert.assertEquals("AGTACTCGT", new Uber().solve(input));
     }
+
     @Test
-    public void solve4(){
+    public void solve4() {
         String input = "CGTAGTACT";
 
-        Assert.assertEquals("CGTAGTACT",Uber.solve(input));
+        Assert.assertEquals("CGTAGTACT", new Uber().solve(input));
     }
 
     @Test
-    public void solve5(){
+    public void solve5() {
         String input = "AGTCGTACT";
 
-        Assert.assertEquals("AGTCGTACT",Uber.solve(input));
+        Assert.assertEquals("AGTCGTACT", new Uber().solve(input));
     }
 
     @Test
-    public void solve6(){
+    public void solve6() {
         String input = "AGTAAAAAAACGTBBBBBBBBACT";
 
-        Assert.assertEquals("AGTAAAAAAACGTBBBBBBBBACT",Uber.solve(input));
+        Assert.assertEquals("AGTAAAAAAACGTBBBBBBBBACT", new Uber().solve(input));
     }
+
     @Test
-    public void solve7(){
+    public void solve7() {
         String input = "AGTAAAAAAACGTBBBBBBBBACTBBBBAGTACTCGT";
 
-        Assert.assertEquals("AGTACTCGT",Uber.solve(input));
+        Assert.assertEquals("AGTACTCGT", new Uber().solve(input));
     }
 }

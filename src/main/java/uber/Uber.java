@@ -8,28 +8,35 @@ import java.util.Map;
  */
 public class Uber {
 
+    public Map<String, Integer> mapGenes;
 
-    public static String solve(String dna) {
+    public int sizeGenesCounter;
 
-        Map<String, Integer> mapGenes = new HashMap<>();
+    public Uber() {
+        mapGenes = new HashMap<>();
         mapGenes.put("ACT", 0);
         mapGenes.put("AGT", 0);
         mapGenes.put("CGT", 0);
+
+        sizeGenesCounter = mapGenes.size();
+    }
+
+    public String solve(String dna) {
 
         String bestDNA = "";
 
         int uniqueGenesCounter = 0;
 
-        int tail = 0, head = 0;
+        int tail = 0;
 
-        while (head + 3 <= dna.length()) {
+        SlideWindow slideWindow = new SlideWindow(dna,0,3);
 
-            String geneKey = dna.substring(head, head + 3);
+        while (slideWindow.getRight() <= dna.length()) {
 
-            Integer geneCounter = mapGenes.get(geneKey);
+            Integer geneCounter = mapGenes.get(slideWindow.getKeyByWindow());
 
             if (geneCounter == null) {
-                head++;
+                slideWindow.increment();
                 continue;
             }
 
@@ -37,14 +44,14 @@ public class Uber {
                 uniqueGenesCounter++;
             }
 
-            mapGenes.put(geneKey, ++geneCounter);
+            mapGenes.put(slideWindow.getKeyByWindow(), ++geneCounter);
 
-            while (uniqueGenesCounter == 3) {
+            while (uniqueGenesCounter == sizeGenesCounter) {
 
-                if (isBestDNA(tail, head)) return dna.substring(tail, head + 3);
+                if (isBestDNA(tail, slideWindow.getLeft())) return dna.substring(tail, slideWindow.getRight());
 
-                if (bestDNA.isEmpty() || (head + 3) - tail < bestDNA.length()) {
-                    bestDNA = dna.substring(tail, head + 3);
+                if (bestDNA.isEmpty() || slideWindow.getRight() - tail < bestDNA.length()) {
+                    bestDNA = dna.substring(tail, slideWindow.getRight());
                 }
 
                 String tailGeneKey = dna.substring(tail, tail + 3);
@@ -64,7 +71,7 @@ public class Uber {
                     }
                 }
             }
-            head++;
+            slideWindow.increment();
         }
 
         return bestDNA;
