@@ -12,31 +12,29 @@ public class AwardBudgetCut {
 
     //}
 
-    public int findGrantsCap2(int[] g, int budget) {
-        Arrays.sort(g);
-        int low = 0;
-        int high = g.length-1;
-        int mid = 0;
-
-        int target = budget/g.length; //25 for a budget of 100 and n=5 [10,12,15,25,30]
-
-        while(low<=high){
-            mid = (low+high)/2;
-            if(g[mid-1]<target && g[mid]>target){
-                break;
-            }
-            else if(g[mid]<target){
-                low = mid+1;
-            }else if(g[mid]>target)
-                high = mid-1;
+    public int findGrantsCap2(int[] array, int b) {
+        if(array==null || array.length ==0){
+            return 0;
         }
 
-        int sum=0;
-        int rem = (g.length-mid);
-        for(int i=0; i<mid; i++){
-            sum+=g[i];
+        int n = array.length;
+        int cap = b/n;
+        Arrays.sort(array);
+
+        int indexOfCap = 0;// BinarySe(array,cap);
+
+        int newSum=0;
+        for(int i=0;i<indexOfCap;i++){
+            newSum+=array[i];
         }
-        return (budget-sum)/rem;
+
+        int numElemGreater = n-indexOfCap;
+        newSum+= cap * numElemGreater;
+        int diff = b - newSum;
+        if(diff>0) {
+            cap =  diff/numElemGreater;
+        }
+        return cap;
     }
 
     public int findGrantsCap(int[] g, int b) {

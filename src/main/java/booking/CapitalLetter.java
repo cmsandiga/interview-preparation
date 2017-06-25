@@ -1,3 +1,5 @@
+package booking;
+
 /**
  * Created by makoto on 19/02/17.
  */
