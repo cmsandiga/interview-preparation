@@ -6,13 +6,13 @@ import java.util.Map;
 /**
  * Created by makoto on 21/05/17.
  */
-public class Uber {
+public class UberDNA {
 
     public Map<String, Integer> mapGenes;
 
     public int sizeGenesCounter;
 
-    public Uber() {
+    public UberDNA() {
         mapGenes = new HashMap<>();
         mapGenes.put("ACT", 0);
         mapGenes.put("AGT", 0);

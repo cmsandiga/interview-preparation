@@ -33,7 +33,7 @@ public class SortHotels {
             for (int k = 0; k < m; k++) {
                 dependency.add(sc.nextInt());
             }
-
+            Set<Integer> set = new HashSet<>();
             Set<Integer> founded = new HashSet<>();
             LinkedList<Integer> result = new LinkedList<>();
             for (Integer prog : dependency) {
