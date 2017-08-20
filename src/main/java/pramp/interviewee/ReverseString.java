@@ -19,10 +19,10 @@ public class ReverseString {
 
     public static void main(String[] args) {
         String pramp = "Practice Makes Perfect";
-        System.out.println(pramp);
+        System.out.println(reverse(pramp.toCharArray()));
     }
 
-    public char[] reverse(char[] arr) {
+    public static char[] reverse(char[] arr) {
         int N = arr.length;
 
         for (int i = 0, j = N - 1; i < N / 2; i++) {
@@ -44,7 +44,7 @@ public class ReverseString {
     }
 
     // O(2N)-> O(N)
-    public void swap(char[] arr, int i, int j) {
+    public static void swap(char[] arr, int i, int j) {
         char temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;

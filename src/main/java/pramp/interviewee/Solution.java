@@ -55,12 +55,20 @@ public class Solution {
          *********************************************/
 
         public static void main(String[] args) {
-            Node node = new Node(0);
-            node.children = new Node[3];
-            node.children[0].key = 5;
-            node.children[1].key = 3;
-            node.children[1].key = 6;
+            Node node = new Node(1);
+            node.children = new Node[2];
+            node.children[0] = new Node(4);
+            node.children[1] = new Node(3);
+/*
 
+            node.children[0].children[0] = new BinarySearchTree(1);
+
+            node.children[1] = new BinarySearchTree(3);
+            node.children[1].children = new BinarySearchTree[1];
+            node.children[1].children[0] = new BinarySearchTree(5);
+
+            node.children[2] = new BinarySearchTree(20);
+*/
             System.out.println(Solution.SalesPath.getCheapestCost(node));
         }
     }

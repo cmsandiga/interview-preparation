@@ -21,7 +21,7 @@ public class HTree extends JPanel {
     public void paintComponent(Graphics g) {
         int x = 400;
         int y = 400;
-        int depth = 2;
+        int depth = 5;
         int startpoint = 200;
 
 

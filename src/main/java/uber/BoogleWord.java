@@ -127,11 +127,13 @@ public class BoogleWord {
 
             int i = 0;
             for (char c : word.toCharArray()) {
+
                 TreeNode treeNode = iter.map.get(c);
 
                 if (treeNode == null) {
                     treeNode = new TreeNode();
                 }
+
                 if (i == word.length() - 1) {
                     treeNode.isWord = true;
                 }

@@ -26,7 +26,7 @@ public class ReverseLinkedList {
 
         @Override
         public String toString() {
-            return "Node{" +
+            return "BinarySearchTree{" +
                     "data=" + data + '}';
         }
     }
