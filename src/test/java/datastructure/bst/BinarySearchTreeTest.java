@@ -3,6 +3,8 @@ package datastructure.bst;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.List;
+
 public class BinarySearchTreeTest {
 
     @Test
@@ -121,5 +123,47 @@ public class BinarySearchTreeTest {
         Assert.assertEquals(1, binarySearchTree.findMinimumRecursive().value);
         binarySearchTree.insert(0);
         Assert.assertEquals(0, binarySearchTree.findMinimumRecursive().value);
+    }
+
+
+    @Test
+    public void findSum() {
+        BinarySearchTree binarySearchTree = new BinarySearchTree();
+        binarySearchTree.insert(4);
+        binarySearchTree.insert(3);
+        binarySearchTree.insert(2);
+        binarySearchTree.insert(5);
+
+        Assert.assertEquals(14, binarySearchTree.sum());
+    }
+
+    @Test
+    public void findSumBFS() {
+        BinarySearchTree binarySearchTree = new BinarySearchTree();
+        binarySearchTree.insert(4);
+        binarySearchTree.insert(3);
+        binarySearchTree.insert(2);
+        binarySearchTree.insert(5);
+
+        Assert.assertEquals(14, binarySearchTree.sumBFS());
+    }
+
+    @Test
+    public void bfs() {
+        BinarySearchTree binarySearchTree = new BinarySearchTree();
+        binarySearchTree.insert(5);
+        binarySearchTree.insert(3);
+        binarySearchTree.insert(4);
+        binarySearchTree.insert(2);
+        binarySearchTree.insert(8);
+        binarySearchTree.insert(7);
+
+        List<Integer> level = binarySearchTree.bfs();
+
+        Assert.assertEquals(4, level.get(0).intValue());
+        Assert.assertEquals(3, level.get(1).intValue());
+        Assert.assertEquals(8, level.get(2).intValue());
+        Assert.assertEquals(2, level.get(3).intValue());
+        Assert.assertEquals(7, level.get(4).intValue());
     }
 }

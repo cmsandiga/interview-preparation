@@ -1,11 +1,13 @@
 package datastructure.bst;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 public class BinarySearchTree {
 
     public Node root;
-
-
-
 
     public static class Node {
         int value;
@@ -145,14 +147,65 @@ public class BinarySearchTree {
         return findMinimumRecursiveUtil(root, null);
     }
 
-    public Node findMinimumRecursiveUtil(Node root, Node min){
+    public Node findMinimumRecursiveUtil(Node root, Node min) {
 
-        if(root == null){
+        if (root == null) {
             return min;
         }
         min = root;
 
         return findMinimumRecursiveUtil(root.left, min);
+    }
+
+
+    public int sum() {
+        return sumUtil(root);
+    }
+
+    public int sumUtil(Node root) {
+
+        if (root == null) {
+            return 0;
+        }
+
+        int left = sumUtil(root.left);
+        int right = sumUtil(root.right);
+
+        return left + right + root.value;
+    }
+
+    public int sumBFS() {
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+
+        int sum = 0;
+
+        while (!queue.isEmpty()) {
+            Node it = queue.peek();
+            sum += it.value;
+
+            if (it.left != null) queue.offer(it.left);
+            if (it.right != null) queue.offer(it.right);
+        }
+
+        return sum;
+    }
+
+    public List<Integer> bfs() {
+        List<Integer> result = new ArrayList<>();
+
+        Queue<Node> queue = new LinkedList<Node>();
+        queue.offer(root);
+
+        while(!queue.isEmpty()){
+            Node node = queue.poll();
+            result.add(node.value);
+
+            if(node.left != null) queue.offer(node.left);
+            if(node.right!= null) queue.offer(node.right);
+        }
+
+        return result;
     }
 }
 
