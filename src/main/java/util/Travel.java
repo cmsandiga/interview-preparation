@@ -12,4 +12,6 @@ public class Travel {
         this.source = source;
         this.target = target;
     }
+
+
 }
