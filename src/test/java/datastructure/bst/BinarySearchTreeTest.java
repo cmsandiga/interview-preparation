@@ -3,6 +3,7 @@ package datastructure.bst;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BinarySearchTreeTest {
@@ -165,5 +166,83 @@ public class BinarySearchTreeTest {
         Assert.assertEquals(8, level.get(2).intValue());
         Assert.assertEquals(2, level.get(3).intValue());
         Assert.assertEquals(7, level.get(4).intValue());
+    }
+
+    @Test
+    public void height() {
+        BinarySearchTree binarySearchTree = new BinarySearchTree();
+        binarySearchTree.insert(7);
+        binarySearchTree.insert(4);
+        binarySearchTree.insert(3);
+        binarySearchTree.insert(5);
+        binarySearchTree.insert(6);
+        binarySearchTree.insert(10);
+        binarySearchTree.insert(8);
+        binarySearchTree.insert(12);
+        binarySearchTree.insert(14);
+        binarySearchTree.insert(15);
+
+        int height = binarySearchTree.height(binarySearchTree.root);
+
+        Assert.assertEquals(3, height);
+    }
+
+
+    @Test
+    public void inOrderRecusrive() {
+        BinarySearchTree binarySearchTree = new BinarySearchTree();
+        binarySearchTree.insert(7);
+        binarySearchTree.insert(4);
+        binarySearchTree.insert(3);
+        binarySearchTree.insert(5);
+        binarySearchTree.insert(6);
+        binarySearchTree.insert(10);
+        binarySearchTree.insert(8);
+        binarySearchTree.insert(12);
+        binarySearchTree.insert(14);
+        binarySearchTree.insert(15);
+
+        List<Integer> result = new ArrayList<>();
+        binarySearchTree.inOrderRecursive(binarySearchTree.root, result);
+
+        Assert.assertEquals(3, result.get(0).intValue());
+        Assert.assertEquals(4, result.get(1).intValue());
+        Assert.assertEquals(5, result.get(2).intValue());
+        Assert.assertEquals(6, result.get(3).intValue());
+        Assert.assertEquals(7, result.get(4).intValue());
+        Assert.assertEquals(8, result.get(5).intValue());
+        Assert.assertEquals(10, result.get(6).intValue());
+        Assert.assertEquals(12, result.get(7).intValue());
+        Assert.assertEquals(14, result.get(8).intValue());
+        Assert.assertEquals(15, result.get(9).intValue());
+    }
+
+    @Test
+    public void inOrderIterative() {
+        BinarySearchTree binarySearchTree = new BinarySearchTree();
+        binarySearchTree.insert(7);
+        binarySearchTree.insert(4);
+        binarySearchTree.insert(3);
+        binarySearchTree.insert(5);
+        binarySearchTree.insert(6);
+        binarySearchTree.insert(10);
+        binarySearchTree.insert(8);
+        binarySearchTree.insert(12);
+        binarySearchTree.insert(14);
+        binarySearchTree.insert(15);
+
+        List<Integer> result = new ArrayList<>();
+        binarySearchTree.inOrderIterative(binarySearchTree.root, result);
+
+        Assert.assertEquals(3, result.get(0).intValue());
+        Assert.assertEquals(4, result.get(1).intValue());
+        Assert.assertEquals(5, result.get(2).intValue());
+        Assert.assertEquals(6, result.get(3).intValue());
+        Assert.assertEquals(7, result.get(4).intValue());
+        Assert.assertEquals(8, result.get(5).intValue());
+        Assert.assertEquals(10, result.get(6).intValue());
+        Assert.assertEquals(12, result.get(7).intValue());
+        Assert.assertEquals(14, result.get(8).intValue());
+        Assert.assertEquals(15, result.get(9).intValue());
     }
 }

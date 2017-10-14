@@ -1,9 +1,6 @@
 package datastructure.bst;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class BinarySearchTree {
 
@@ -197,22 +194,70 @@ public class BinarySearchTree {
         Queue<Node> queue = new LinkedList<Node>();
         queue.offer(root);
 
-        while(!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             Node node = queue.poll();
             result.add(node.value);
 
-            if(node.left != null) queue.offer(node.left);
-            if(node.right!= null) queue.offer(node.right);
+            if (node.left != null) queue.offer(node.left);
+            if (node.right != null) queue.offer(node.right);
         }
 
         return result;
     }
+
+
+    public int height(Node root) {
+        if (root == null) {
+            return 0;
+        }
+
+        int left = height(root.left);
+        int right = height(root.right);
+
+        return Math.max(left, right) + 1;
+    }
+
+    public void inOrderRecursive(Node root, List<Integer> result) {
+
+        if (root == null)
+            return;
+
+        inOrderRecursive(root.left, result);
+        result.add(root.value);
+        inOrderRecursive(root.right, result);
+    }
+
+    public void inOrderIterative(Node root, List<Integer> result) {
+
+        if (root == null)
+            return;
+
+        Stack<Node> stack = new Stack<>();
+
+        Node it = root;
+        //stack.push(it);
+
+        while (it != null) {
+            stack.push (it);
+
+            if (it.left != null) {
+                it = it.left;
+                continue;
+            } else {
+                result.add(stack.pop().value);
+            }
+
+            if (it.right != null) {
+                it = it.right;
+            } else {
+                if (!stack.isEmpty()) {
+                    it = stack.peek().right;
+                    result.add(stack.pop().value);
+                } else {
+                    break;
+                }
+            }
+        }
+
+    }
 }
-
-
-
-
-
-
-
-
