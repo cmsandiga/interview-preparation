@@ -1,6 +1,6 @@
 package dynamicprogramming;
 
-import dynamicprogramming.ch1.BubleSortRecursive;
+import dpbook.BubleSortRecursive;
 import org.junit.Assert;
 import org.junit.Test;
 

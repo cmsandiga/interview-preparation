@@ -1,6 +1,6 @@
 package dynamicprogramming;
 
-import dynamicprogramming.ch1.SumFirstPositiveIntegers;
+import dpbook.SumFirstPositiveIntegers;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,6 +1,6 @@
 package dynamicprogramming;
 
-import dynamicprogramming.ch1.RecursiveSum;
+import dpbook.RecursiveSum;
 import org.junit.Assert;
 import org.junit.Test;
 

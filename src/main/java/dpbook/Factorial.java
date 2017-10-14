@@ -1,4 +1,4 @@
-package dynamicprogramming.ch1;
+package dpbook;
 
 /**
  * @author <a href="mailto:csandiga@uolinc.com">Makoto Sandiga</a>

@@ -1,6 +1,6 @@
 package dynamicprogramming;
 
-import dynamicprogramming.ch1.Factorial;
+import dpbook.Factorial;
 import org.junit.Assert;
 import org.junit.Test;
 

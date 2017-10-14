@@ -1,6 +1,6 @@
 package dynamicprogramming;
 
-import dynamicprogramming.ch1.MatematicalTable;
+import dpbook.MatematicalTable;
 import org.junit.Test;
 
 /**
